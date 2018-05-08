@@ -53,6 +53,11 @@ if __name__ == "__main__":
         cost_line = input("날짜별 공연장 대여 비용(총 "+ str(n) + "일) : ")
         cost_list = list(map(lambda x: int(x), cost_line.split(" ")))
 
+        for cost in cost_list:
+            if cost < 0 or cost > 100:
+                print("모든 비용은 100 이하의 자연수여야 합니다.")
+                sys.exit(-1)
+
         if len(cost_list) != n:
             print("입력한 대여 비용의 수와 공연장을 대여할 수 있는 날들의 수가 다릅니다.")
             sys.exit(-1)
